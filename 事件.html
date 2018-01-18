@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--viewport 视口-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+		<script>
+			(function(){
+			var html =document.documentElement
+			html.style.fontSize = html.getBoundingClientRect().width/15 + "px"
+			})()
+			
+		</script>
+		<style>
+			div{
+				width:5rem;
+				height:5rem;
+				background: red;
+				position: absolute;
+				top:0;
+				left: 0;
+				opacity: .5;
+			}
+			input{
+				width: 5rem;
+				height:2rem;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<input type="text" />
+		<!--<p>跳转百度</p>-->
+		<!--<a href="https://www.baidu.com">跳转百度</a>
+		<div></div>-->
+		
+		<script>
+			var div = document.querySelector("div");
+			var p = document.querySelector("p");
+	/*
+	  三大事件
+	 * 触摸 ontouchstart
+	 * 移动 ontouchmove
+	 * 离开	ontouchend
+	 * 
+	 * on 这种形式  。在模拟器上  不稳定 ，所有移动端 用 addEventListener
+	 * */
+			
+//			div.addEventListener("touchstart",function(){
+//				console.log("陌上")
+//			})
+//			div.addEventListener("touchmove",function(){
+//				console.log("动了")
+//			})
+//			div.addEventListener("touchend",function(){
+//				console.log("离开了")
+//			})
+
+	/*
+	 
+	 * 300ms问题  pc端的事件 在 移动端 有 300ms 延迟
+	 * 
+	 * */
+			
+//			div.addEventListener("click",function(){
+//				console.log("点击啦啦啦啦")
+//			})
+//			div.addEventListener("touchstart",function(){
+//				console.log("陌上")
+//			})
+
+
+	/*
+	 
+	 * 点透：点击穿透  300ms 引起的
+	 * 
+	 * 解决方案:
+	 * 1、不用a
+	 * 2、阻止浏览器默认行为
+	 * 3、input
+	 * 
+	 * */
+		
+		document.addEventListener("touchstart",function(e){
+			e.preventDefault();
+		});
+	
+		
+//		div.addEventListener("touchstart",function(){
+//				this.style.display = "none"
+//		});
+		
+//		p.addEventListener("touchstart",function(){
+//				window.location.href = "https://www.baidu.com"
+//			})
+
+	
+		</script>
+	</body>
+</html>
